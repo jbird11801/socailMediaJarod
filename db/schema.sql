@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS millenial_DB;
+CREATE DATABASE millenial_DB;

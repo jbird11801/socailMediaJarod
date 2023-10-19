@@ -1,0 +1,15 @@
+.custom_colorBD {
+
+    border: 2px solid rgba(78, 222, 208, 0.31);
+
+}
+
+.custom_colorBG{
+
+    background-color:  rgba(78, 222, 208);
+
+}
+
+.hidden {
+    display: none;
+}

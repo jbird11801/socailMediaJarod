@@ -1,0 +1,76 @@
+<!-- Title of site/logged in profile information goes here -->
+<nav class="navbar custom_colorBG">
+    <h2 class="title is-2 mt-4 mx-4"> MilBook </h2>
+</nav>
+
+<nav>
+    <div id="localDateTime" class="mt-4 mx-4"></div>
+</nav>
+
+<section class="is-flex is-flex-direction-row mt-4 mx-2 custom_colorBD">
+
+    <div class="card is-flex-grow-1 m-2 custom_colorBG">
+
+        <div class="card-content is-flex-direction-column" >
+            Name: <p id="Name">{{userData.username}}</p>
+        </div>
+         
+
+        <!-- Add an empty image space as a placeholder -->
+        <div class="card-content is-flex-direction-column" id="ProfilePicturePlaceholder">
+            <img src="images/profile_picture.jpg" alt="Empty Image" width="100" height="100">
+        </div>
+
+        <div class="card-content is-flex-direction-column" id="Animal">
+            Animal: <p>{{userData.animalChoice}}</p>
+        </div>
+
+    </div>
+
+    <!-- Where random inspirational quotes go -->
+    <section class="is-flex-grow-5">
+
+        <div class="card custom_colorBG mx-4 my-1">
+
+            <div class="card-content">
+                <h1 id="contentType"></h1>
+            </div>
+        </div>
+
+        <div class="card custom_colorBG mx-4 mt-1">
+            <div class="card-content is-flex-direction-column">
+                <img id="randomImage" src="" alt="Random Image" class="hidden">
+                <p id="randomQuote"></p>
+                <p id="randomAuthor"></p>
+            </div>
+        </div>
+
+        <!-- Make a post area -->
+        <div class="mx-4 my-4 is-flex is-flex-direction-row is-align-items-center">
+            <!-- Make a post! section, for adding text, image, links, etc -->
+            <input class="input is-rounded custom_colorBD p-3" type="text" placeholder="Type your post here!" id="TextBox">
+            <button class="button is-rounded custom_colorBG p-3" id="postButton">
+                <span class="icon is-small">
+                    <i class="fa-solid fa-paper-plane "></i>
+                </span>
+                <span>Post</span>
+            </button>
+            <form action="/create-image-post" method="POST" enctype="multipart/form-data" class="hidden">
+                <input type="file" name="image" id="image" accept="image/*">
+            </form>
+        </div>
+        
+        {{#each posts as |Posts|}}
+        <div class="card custom_colorBG mx-4 my-1">
+            <div class="card-content">
+                <h1 id="contentType"></h1>
+                <p>{{Posts.userName}} : {{Posts.text}}</p>
+            </div>
+        </div>
+        {{/each}}
+
+    </section>
+</section>
+
+<script src="./js/dashboardContent.js"></script>
+<script src="./js/post.js"></script>
